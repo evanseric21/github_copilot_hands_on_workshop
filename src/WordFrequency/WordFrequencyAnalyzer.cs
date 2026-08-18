@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace WordFrequencyRefactor;
+namespace WordFrequency;
 
 public static class WordFrequencyAnalyzer
 {
@@ -9,13 +9,21 @@ public static class WordFrequencyAnalyzer
 
     public static IReadOnlyList<WordCount> TopWords(string text, int top)
     {
-        if (top <= 0)
+        ArgumentNullException.ThrowIfNull(text);
+
+        if (top < 1)
+        {
+            throw new ArgumentOutOfRangeException(nameof(top), top, "Top must be at least 1.");
+        }
+
+        if (string.IsNullOrWhiteSpace(text))
         {
             return [];
         }
 
-        var counts = CountWords(text);
-        return OrderWords(counts)
+        return CountWords(text)
+            .OrderByDescending(pair => pair.Value)
+            .ThenBy(pair => pair.Key, StringComparer.Ordinal)
             .Take(top)
             .Select(pair => new WordCount(pair.Key, pair.Value))
             .ToArray();
@@ -33,8 +41,4 @@ public static class WordFrequencyAnalyzer
 
         return counts;
     }
-
-    private static IOrderedEnumerable<KeyValuePair<string, int>> OrderWords(Dictionary<string, int> counts) =>
-        counts.OrderByDescending(pair => pair.Value)
-            .ThenBy(pair => pair.Key, StringComparer.Ordinal);
 }

@@ -1,4 +1,6 @@
-namespace WordFrequencyRefactor;
+using System.Globalization;
+
+namespace WordFrequency;
 
 public static class CommandLineApp
 {
@@ -10,6 +12,10 @@ public static class CommandLineApp
 
     public static int Run(string[] args, TextWriter output, TextWriter error)
     {
+        ArgumentNullException.ThrowIfNull(args);
+        ArgumentNullException.ThrowIfNull(output);
+        ArgumentNullException.ThrowIfNull(error);
+
         if (IsHelpRequest(args))
         {
             output.WriteLine(Usage);
@@ -26,7 +32,11 @@ public static class CommandLineApp
             return FileErrorExitCode;
         }
 
-        WriteResults(WordFrequencyAnalyzer.TopWords(text, command.Top), output);
+        foreach (var word in WordFrequencyAnalyzer.TopWords(text, command.Top))
+        {
+            output.WriteLine($"{word.Word}: {word.Count}");
+        }
+
         return SuccessExitCode;
     }
 
@@ -54,7 +64,7 @@ public static class CommandLineApp
                 return false;
             }
 
-            if (argumentIndex + 1 >= args.Length || !int.TryParse(args[argumentIndex + 1], out top) || top <= 0)
+            if (argumentIndex + 1 >= args.Length || !TryParseTop(args[argumentIndex + 1], out top))
             {
                 error.WriteLine("--top must be followed by a positive whole number.");
                 return false;
@@ -66,6 +76,9 @@ public static class CommandLineApp
         command = new AnalyzerCommand(args[0], top);
         return true;
     }
+
+    private static bool TryParseTop(string value, out int top) =>
+        int.TryParse(value, NumberStyles.None, CultureInfo.InvariantCulture, out top) && top >= 1;
 
     private static bool TryReadText(string path, TextWriter error, out string text)
     {
@@ -91,14 +104,6 @@ public static class CommandLineApp
         {
             error.WriteLine(ex.Message);
             return false;
-        }
-    }
-
-    private static void WriteResults(IEnumerable<WordCount> words, TextWriter output)
-    {
-        foreach (var word in words)
-        {
-            output.WriteLine($"{word.Word}: {word.Count}");
         }
     }
 
