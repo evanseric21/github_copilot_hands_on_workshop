@@ -13,9 +13,10 @@ public sealed class WordFrequencyAnalyzerTests
     [Theory]
     [InlineData(0)]
     [InlineData(-1)]
-    public void TopWords_InvalidTop_Throws(int top)
+    [InlineData(int.MinValue)]
+    public void TopWords_TopIsZeroOrNegative_ReturnsEmpty(int top)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => WordFrequencyAnalyzer.TopWords("anything", top));
+        Assert.Empty(WordFrequencyAnalyzer.TopWords("anything anything else", top));
     }
 
     [Theory]

@@ -11,9 +11,9 @@ public static class WordFrequencyAnalyzer
     {
         ArgumentNullException.ThrowIfNull(text);
 
-        if (top < 1)
+        if (top <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(top), top, "Top must be at least 1.");
+            return [];
         }
 
         if (string.IsNullOrWhiteSpace(text))
