@@ -1,0 +1,6 @@
+Copilot guides code, tests, and review.
+Code grows when Copilot suggests tests.
+Review keeps code honest; tests keep review focused.
+Build the analyzer. Build the habits. Build with Copilot.
+Practice prompts, practice small steps, and practice clear tests.
+Lab 2 proves scoped instructions; lab 3 proves repeatable tests.

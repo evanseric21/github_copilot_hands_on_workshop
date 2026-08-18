@@ -1,0 +1,53 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio / Rider / VS Code local state
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/.ropeproject
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/mcp.json
+
+# Test and coverage output
+TestResults/
+*.trx
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# NuGet / packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Publish output
+publish/
+artifacts/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.pfx
+*.p12
+*.pem
+*.key
+secrets.json
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json.example
