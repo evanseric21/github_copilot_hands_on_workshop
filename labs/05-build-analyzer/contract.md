@@ -166,6 +166,18 @@ File not found: no-such-file.txt
 
 ...on stderr, exit code `1`.
 
+## Sample text provenance
+
+`samples/sample.txt` is original text written for this workshop. With token regex `[A-Za-z0-9]+`, invariant lowercase, no stop words, and ordering by count descending then `StringComparer.Ordinal` ascending ties, the expected top 5 are:
+
+1. `tests: 5`
+2. `build: 3`
+3. `code: 3`
+4. `copilot: 3`
+5. `practice: 3`
+
+`review` also appears 3 times and is excluded from the top 5 by the ordinal tie-break.
+
 ## 7. Prompt-ready version
 
 Paste this block into Copilot when you want the contract in a prompt:
@@ -185,15 +197,15 @@ Frozen behaviour contract - implement exactly this, do not improve on it:
 
 You do not have to take it on faith — it is executable in this repository:
 
-- `lab-refactor/WordFrequencyRefactor.Tests/WordFrequencyAnalyzerTests.cs` — tokenizing, casing, digits, ordinal ties, and the pinned sample top 5.
-- `lab-refactor/WordFrequencyRefactor.Tests/CommandLineAppTests.cs` — help text, exit codes, the default top 10, and the printed output for an explicit `--top 5`.
-- `samples/README.md` — the provenance note for the sample text and its expected top 5.
+- `labs/06-refactor-review/starter/WordFrequencyRefactor.Tests/WordFrequencyAnalyzerTests.cs` — tokenizing, casing, digits, ordinal ties, and the pinned sample top 5.
+- `labs/06-refactor-review/starter/WordFrequencyRefactor.Tests/CommandLineAppTests.cs` — help text, exit codes, the default top 10, and the printed output for an explicit `--top 5`.
+- `samples/sample.txt` — original workshop text used for pinned output checks.
 
 Run them any time:
 
 ```powershell
 # Working directory: repository root
-dotnet test lab-refactor/WordFrequencyRefactor.Tests
+dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
 ```
 
 Expect `Passed!` with 8 tests.

@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="..\..\samples\sample.txt" Link="samples\sample.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\..\..\samples\sample.txt" Link="samples\sample.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

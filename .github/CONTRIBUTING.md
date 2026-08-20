@@ -26,11 +26,11 @@ Before opening a pull request:
 2. Run the refactor lab tests if you touched C# code:
 
    ```powershell
-   dotnet test .\lab-refactor\WordFrequencyRefactor.Tests\WordFrequencyRefactor.Tests.csproj
+   dotnet test .\labs\06-refactor-review\starter\WordFrequencyRefactor.Tests\WordFrequencyRefactor.Tests.csproj
    ```
 
 3. Update related docs in the same change.
-4. Confirm links are relative unless they belong in `docs/resources.md`.
+4. Confirm links are relative unless they belong in `docs/reference.md`.
 5. Confirm no secrets, absolute local paths, or reference solutions were added to the default branch.
 
 ## Pull requests

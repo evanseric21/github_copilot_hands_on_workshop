@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "starter", "starter", "{FEA2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScopedInstructionsDemo", "labs\02-scoped-csharp-instructions\starter\ScopedInstructionsDemo\ScopedInstructionsDemo.csproj", "{A6A8B81A-5B20-4D0D-9737-D83DEADB6383}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab-refactor", "lab-refactor", "{368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-refactor-review", "06-refactor-review", "{368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor", "lab-refactor\WordFrequencyRefactor\WordFrequencyRefactor.csproj", "{FBBBF6BA-57AD-48DA-9315-6250ACDE331E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor", "labs\06-refactor-review\starter\WordFrequencyRefactor\WordFrequencyRefactor.csproj", "{FBBBF6BA-57AD-48DA-9315-6250ACDE331E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor.Tests", "lab-refactor\WordFrequencyRefactor.Tests\WordFrequencyRefactor.Tests.csproj", "{D197B4F7-5D3C-44C8-BD9B-04CEFCED13AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor.Tests", "labs\06-refactor-review\starter\WordFrequencyRefactor.Tests\WordFrequencyRefactor.Tests.csproj", "{D197B4F7-5D3C-44C8-BD9B-04CEFCED13AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +107,7 @@ Global
 		{4A29EB56-4240-CE7A-6BC5-B791D5E3FCB8} = {908A2AE8-7277-8D33-5900-B70622523C2F}
 		{FEA2D920-4400-4E70-4F6B-7C765E2B5B8F} = {4A29EB56-4240-CE7A-6BC5-B791D5E3FCB8}
 		{A6A8B81A-5B20-4D0D-9737-D83DEADB6383} = {FEA2D920-4400-4E70-4F6B-7C765E2B5B8F}
+		{368CCB80-2D43-F6E1-0C88-0BC3284ABAAB} = {908A2AE8-7277-8D33-5900-B70622523C2F}
 		{FBBBF6BA-57AD-48DA-9315-6250ACDE331E} = {368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}
 		{D197B4F7-5D3C-44C8-BD9B-04CEFCED13AA} = {368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}
 	EndGlobalSection
