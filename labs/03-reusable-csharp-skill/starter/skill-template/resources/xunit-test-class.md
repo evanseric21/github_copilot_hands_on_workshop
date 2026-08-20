@@ -58,4 +58,4 @@ public sealed class WordFrequencyAnalyzerTests
 
 The test projects in this repository target `net10.0` and reference `xunit.v3`, `xunit.runner.visualstudio`
 and `Microsoft.NET.Test.Sdk`, plus a `ProjectReference` to the project under test. See
-`lab-refactor/WordFrequencyRefactor.Tests/WordFrequencyRefactor.Tests.csproj` for a working example.
+`labs/06-refactor-review/starter/WordFrequencyRefactor.Tests/WordFrequencyRefactor.Tests.csproj` for a working example.
