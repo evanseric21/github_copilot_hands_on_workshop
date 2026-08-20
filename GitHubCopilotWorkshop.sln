@@ -21,9 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScopedInstructionsDemo", "l
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab-refactor", "lab-refactor", "{368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor", "lab-refactor\WordFrequencyRefactor\WordFrequencyRefactor.csproj", "{FBBBF6BA-57AD-48DA-9315-6250ACDE331E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor", "labs\06-refactor-review\starter\WordFrequencyRefactor\WordFrequencyRefactor.csproj", "{FBBBF6BA-57AD-48DA-9315-6250ACDE331E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor.Tests", "lab-refactor\WordFrequencyRefactor.Tests\WordFrequencyRefactor.Tests.csproj", "{D197B4F7-5D3C-44C8-BD9B-04CEFCED13AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor.Tests", "labs\06-refactor-review\starter\WordFrequencyRefactor.Tests\WordFrequencyRefactor.Tests.csproj", "{D197B4F7-5D3C-44C8-BD9B-04CEFCED13AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
