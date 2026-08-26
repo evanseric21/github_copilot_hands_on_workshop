@@ -72,7 +72,7 @@ Leave able to answer three questions:
    server and a remote (URL) server?
    ```
 
-5. **Read the trust rules** below. They are the part that matters on Monday.
+5. **Read the trust rules** below.
 
 ## The trust rules
 
