@@ -3,18 +3,12 @@
 This file is an **optional** resource you can bundle with your skill in Lab 3.
 It exists to demonstrate progressive disclosure: Copilot loads it only when a step in `SKILL.md` points at it.
 
-Copy it next to your `SKILL.md` if you want to try that:
+Copy it next to your `SKILL.md` if you want to try that. In VS Code Explorer, create a `resources` folder next to your skill's `SKILL.md`, then copy this file into it.
 
-```powershell
+```text
 # Working directory: repository root
-New-Item -ItemType Directory -Force -Path .github/skills/csharp-xunit-test/resources | Out-Null
-Copy-Item labs/03-reusable-csharp-skill/starter/skill-template/resources/xunit-test-class.md `
-          .github/skills/csharp-xunit-test/resources/xunit-test-class.md
+code .github/skills/csharp-xunit-test/resources/xunit-test-class.md
 ```
-
-> **bash:**
-> `mkdir -p .github/skills/csharp-xunit-test/resources`
-> `cp labs/03-reusable-csharp-skill/starter/skill-template/resources/xunit-test-class.md .github/skills/csharp-xunit-test/resources/`
 
 ---
 

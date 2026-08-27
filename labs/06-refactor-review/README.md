@@ -4,14 +4,14 @@
 | | |
 | --- | --- |
 | **Timebox** | 19 minutes |
-| **Copilot surface** | Agent mode for refactor plus editor-local Copilot code review |
+| **Copilot surface** | Agent mode for refactor plus Copilot code review on uncommitted changes |
 | **Working directory** | Repository root |
 | **Starting point** | `labs/06-refactor-review/starter/` — working code that is not nice to read |
 | **Track** | Core → Beginner fallback → Stretch |
 
 ## Goal
 
-Take code that works but is rough, lock its behavior with tests, clean it up in small moves, request Copilot code review in the editor, and triage findings instead of blindly accepting them.
+Take code that works but is rough, lock its behavior with tests, clean it up in small moves, request editor-local Copilot code review, and triage findings instead of blindly accepting them. Editor-local means the review happens inside your editor on your uncommitted changes, not on GitHub.
 
 ## Before you start
 
@@ -21,21 +21,21 @@ Lab 0 passed. Lab 5 is not required; this lab uses its own starter project. The 
 
 1. Prove the baseline is green before changing anything.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
    ```
 
 2. Capture the default output.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt
    ```
 
 3. Capture the explicit top 5 output.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt --top 5
    ```
@@ -48,18 +48,18 @@ Lab 0 passed. Lab 5 is not required; this lab uses its own starter project. The 
 
 7. Re-run tests after every move.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
    ```
 
-8. Request editor-local Copilot code review: VS Code Source Control → **Copilot Code Review – Uncommitted Changes**. If that entry point is missing, use prompt card 3 for a chat review of your diff.
+8. Request an editor-local Copilot code review: open the Source Control panel (`Ctrl+Shift+G`), then look for a Copilot code-review action on your uncommitted changes. The exact label varies by Copilot version. If you do not see one, use prompt card 3 for a chat-based review of your diff.
 
 9. Open [review-notes.md](review-notes.md) and record at least two findings. Mark each **Addressed** with what changed or **Dismissed** with why.
 
 10. Run the final tests and sample output.
 
-    ```bash
+    ```text
     # Working directory: repository root
     dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
     dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt --top 5
@@ -78,27 +78,28 @@ Lab 0 passed. Lab 5 is not required; this lab uses its own starter project. The 
 
 1. Tests are still green:
 
-```bash
+```text
 # Working directory: repository root
 dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
 ```
 
 2. Behavior is unchanged:
 
-```bash
+```text
 # Working directory: repository root
 dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt
 dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt --top 5
 dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- no-such-file.txt
-echo $?
 ```
+
+The missing-file command should print an error to stderr and exit non-zero; the graceful failure is the behavior to preserve.
 
 3. There is a real diff and notes were recorded:
 
-```bash
+```text
 # Working directory: repository root
 git diff --stat labs/06-refactor-review/starter
-grep -n "Addressed\|Dismissed" labs/06-refactor-review/review-notes.md
+git grep --no-index -nE "Addressed|Dismissed" -- labs/06-refactor-review/review-notes.md
 ```
 
 ## If you get stuck
@@ -118,7 +119,7 @@ By 9–10 minutes you should have at least one completed refactor move and green
 | Zero findings | Ask prompt card 4 for top concerns; if none are actionable, record that rationale. |
 | Out of time | Do one extraction, one review request, and one honest note per finding. |
 
-```bash
+```text
 # Working directory: repository root
 dotnet build GitHubCopilotWorkshop.sln
 git restore labs/06-refactor-review/starter
@@ -141,10 +142,6 @@ No push or pull request is required. Optional PR review is enrichment only. For 
 
 </details>
 
-## Next
-
-➡️ [You're done — what next?](#youre-done--what-next)
-
-### You're done — what next?
+## You're done — what next?
 
 You completed the workshop loop: prompt, customize, build, test, refactor, review, and decide. Keep learning with [docs/reference.md](../../docs/reference.md), and try one Monday-sized habit: add a real `.github/instructions/*.instructions.md` file to a repository your team already uses.

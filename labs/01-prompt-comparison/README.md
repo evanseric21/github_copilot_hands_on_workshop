@@ -5,7 +5,7 @@
 | --- | --- |
 | **Timebox** | 10 minutes |
 | **Copilot surface** | Copilot Chat — Ask mode |
-| **Working directory** | Repository root — no files need to be changed |
+| **Working directory** | Repository root — only `comparison-worksheet.md` is edited |
 | **Starting point** | The weak and strong prompts below |
 | **Track** | Core → Beginner fallback → Stretch |
 
@@ -22,6 +22,8 @@ Lab 0 passed and Copilot Chat answers you. You do not write code in this lab; yo
 1. Open Copilot Chat in Ask mode and start a new chat.
 
 2. Run weak prompt 1 exactly as written.
+
+   Expect something generic and unpredictable here — the weak prompt forces Copilot to guess, and that's exactly the point. You'll fix it with a stronger prompt next.
 
    ```text
    make a function
@@ -47,7 +49,7 @@ Lab 0 passed and Copilot Chat answers you. You do not write code in this lab; yo
    Return the method and the record, nothing else.
    ```
 
-4. Select or paste this snippet, then run weak prompt 2.
+4. Paste this snippet into Copilot Chat, then run weak prompt 2.
 
    ```csharp
    public static int CountWords(string text)
