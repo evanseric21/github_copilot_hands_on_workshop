@@ -24,7 +24,7 @@ Audience: instructors and helpers running the 120-minute public workshop.
 | 35-43 | Lab 2 | 17 | Author scoped C# instructions against the provided starter file. |
 | 43-45 | Skills concept | 18-19 | Show `SKILL.md` shape, not internal examples. |
 | 45-53 | Lab 3 | 20 | Create a simple skill; skip scripts unless learners are ahead. |
-| 53-59 | Lab 4 MCP literacy/demo | 21-23 | Include the 2.5-minute guided/read-only practice; inspect `.vscode/mcp.json.example`; no credentials. |
+| 53-59 | Lab 4 MCP literacy/demo | 21-23 | Facilitator-led read-only demo; follow the [Lab 4 demo script](#lab-4-mcp-literacy-demo-script-25-minutes). Inspect `.vscode/mcp.json.example`; no credentials. |
 | 59-64 | Lab 5 setup | 24-26 | Explain loop: prompt, generate, run, test, iterate. |
 | 64-91 | Lab 5 build analyzer | 27 | Build analyzer. Use pairing and fallback prompts for blocked learners. |
 | 91-97 | Lab 6 setup | 28-30 | Open `labs/06-refactor-review/starter/`; explain characterization tests and local review. |
@@ -32,6 +32,26 @@ Audience: instructors and helpers running the 120-minute public workshop.
 | 116-120 | Wrap-up | 32-34 | Reinforce habits and point to [reference](reference.md). |
 
 Approved lab timeboxes: Lab 0 pre-roll gate = 2 minutes, Lab 1 = 10 minutes, Lab 2 = 8 minutes, Lab 3 = 8 minutes, Lab 4 = 2.5 minutes, Lab 5 = 27 minutes, Lab 6 = 19 minutes.
+
+## Lab 4 MCP literacy demo script (2.5 minutes)
+
+[Lab 4](../labs/04-mcp-literacy/README.md) is the optional literacy lab. It is read-only: nothing is installed, no server is connected, no credentials are entered, and learners produce no artifact. Say that out loud at the start so nobody hunts for a task. The deliverable is that learners can answer three questions — what MCP is, where it is configured, and when to say no.
+
+Have `.vscode/mcp.json.example` open in a projected editor before you begin.
+
+1. **Frame MCP (~15 seconds).** "MCP is the Model Context Protocol — it is how Copilot gets new tools and data sources. Enabling an MCP server is like adding a dependency: you are granting trust."
+2. **Show the example config (~45 seconds).** Open `.vscode/mcp.json.example` on screen and call out exactly three details: the key is `servers` (this is the editor / VS Code location), the transport is `http` pointing at localhost, and there are **no credentials** anywhere in the file.
+3. **Name the second configuration location (~20 seconds).** Repository-level MCP uses `mcpServers`, is shared with everyone on the repo, and reaches cloud agents and code review — not just your editor. Land the pair: two locations, editor versus repository.
+4. **Ask Copilot live (~30 seconds).** Paste the prompt into Copilot Chat so the room sees a real answer rather than your paraphrase:
+
+   ```text
+   In two sentences: what is an MCP server, and what is the difference between a local (command)
+   server and a remote (URL) server?
+   ```
+
+5. **Trust rules and close (~30 seconds).** Grant least privilege, prefer read-only when read-only is enough, review the publisher, never commit secrets, use HTTPS for anything that is not loopback, and remember that repo-level MCP reaches cloud agents and code review. Close with the takeaway sentence: "MCP servers give Copilot new tools and data; I configure them in my editor or at the repo level, and I only enable ones I trust."
+
+Fallback: if the demo or Copilot Chat fails, skip it. Show the example config file and read the trust rules — those two carry the learning objective on their own. Under time pressure, Lab 4 collapses to this facilitator-only demo with no learner hands-on time (see [Cut order if time is tight](#cut-order-if-time-is-tight)).
 
 ## Checkpoints and recovery thresholds
 

@@ -7,7 +7,7 @@ A public 120-minute workshop for beginner-to-intermediate .NET developers. You w
 1. Install the tools in [docs/setup.md](docs/setup.md) before the workshop.
 2. Clone this repository and open it in VS Code:
 
-   ```bash
+   ```text
    # Working directory: wherever you keep code
    git clone https://github.com/evanseric21/github_copilot_hands_on_workshop.git
    cd github_copilot_hands_on_workshop

@@ -23,17 +23,15 @@ Scoped instructions change how Copilot writes. A skill packages a whole procedur
 
 1. Read the template.
 
-   ```bash
+   ```text
    # Working directory: repository root
-   cat labs/03-reusable-csharp-skill/starter/skill-template/SKILL.md
+   code labs/03-reusable-csharp-skill/starter/skill-template/SKILL.md
    ```
 
-2. Create the skill folder and copy the template.
+2. Create the skill folder and copy the template in VS Code Explorer: under `.github`, create `skills/csharp-xunit-test`, then copy `labs/03-reusable-csharp-skill/starter/skill-template/SKILL.md` into it.
 
-   ```bash
+   ```text
    # Working directory: repository root
-   mkdir -p .github/skills/csharp-xunit-test
-   cp labs/03-reusable-csharp-skill/starter/skill-template/SKILL.md .github/skills/csharp-xunit-test/SKILL.md
    code .github/skills/csharp-xunit-test/SKILL.md
    ```
 
@@ -97,17 +95,20 @@ Scoped instructions change how Copilot writes. A skill packages a whole procedur
 
 1. Confirm the file and frontmatter.
 
-```bash
+```text
 # Working directory: repository root
-test -f .github/skills/csharp-xunit-test/SKILL.md && head -5 .github/skills/csharp-xunit-test/SKILL.md
+git grep --no-index -n "name:" -- .github/skills/csharp-xunit-test/SKILL.md
+git grep --no-index -n "description:" -- .github/skills/csharp-xunit-test/SKILL.md
 ```
 
 2. Confirm no TODOs remain.
 
-```bash
+```text
 # Working directory: repository root
-grep -n "TODO" .github/skills/csharp-xunit-test/SKILL.md || echo "clean"
+git grep --no-index -n "TODO" -- .github/skills/csharp-xunit-test/SKILL.md
 ```
+
+If it prints nothing, you have replaced all the TODO placeholders. If lines print, you still have placeholders to fill.
 
 3. Confirm Copilot names `csharp-xunit-test` or the output follows your skill steps.
 
@@ -128,10 +129,7 @@ If you want the full starter and resource example, compare with `labs/03-reusabl
 | It fires but output is odd | Add one concrete example line to a step. |
 | You want to undo it | Remove the skill folder. |
 
-```bash
-# Working directory: repository root
-rm -rf .github/skills/csharp-xunit-test
-```
+To undo it, delete `.github/skills/csharp-xunit-test` from VS Code Explorer.
 
 No push or pull request is required. For more help, see [docs/troubleshooting.md](../../docs/troubleshooting.md).
 

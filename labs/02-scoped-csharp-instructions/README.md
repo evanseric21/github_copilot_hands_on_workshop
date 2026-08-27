@@ -23,17 +23,15 @@ Scoped instruction files live at `.github/instructions/<name>.instructions.md`. 
 
 1. Open the starter file so Copilot has a matching `.cs` file in focus.
 
-   ```bash
+   ```text
    # Working directory: repository root
    code labs/02-scoped-csharp-instructions/starter/ScopedInstructionsDemo/InstructionProbe.cs
    ```
 
-2. Create the instruction file.
+2. Create the instruction file in VS Code Explorer: right-click `.github`, create an `instructions` folder if needed, then create `csharp.instructions.md` inside it.
 
-   ```bash
+   ```text
    # Working directory: repository root
-   mkdir -p .github/instructions
-   touch .github/instructions/csharp.instructions.md
    code .github/instructions/csharp.instructions.md
    ```
 
@@ -81,19 +79,19 @@ Scoped instruction files live at `.github/instructions/<name>.instructions.md`. 
 
 1. Confirm the file shape.
 
-```bash
+```text
 # Working directory: repository root
-test -f .github/instructions/csharp.instructions.md && head -3 .github/instructions/csharp.instructions.md
+git grep --no-index -n "applyTo" -- .github/instructions/csharp.instructions.md
 ```
 
 2. Build the starter project.
 
-```bash
+```text
 # Working directory: repository root
 dotnet build labs/02-scoped-csharp-instructions/starter/ScopedInstructionsDemo/ScopedInstructionsDemo.csproj
 ```
 
-3. Confirm Copilot names `csharp.instructions.md` in the applied instruction response.
+3. Confirm Copilot names `csharp.instructions.md` in the applied instruction response. If Copilot does not name the file, that is okay — instead confirm your rules were actually followed (`static` method, `ToLowerInvariant()`, ordinal ordering) as evidence the scoped instructions applied.
 
 ## If you get stuck
 
@@ -110,7 +108,7 @@ At 4 minutes the instruction file should be saved and the trigger prompt should 
 | Copilot edits the wrong file | Focus `InstructionProbe.cs` before sending the prompt. |
 | Starter build fails | Restore the starter and retry. |
 
-```bash
+```text
 # Working directory: repository root
 git restore labs/02-scoped-csharp-instructions/starter
 ```

@@ -21,7 +21,7 @@ Lab 0 passed. Read [contract.md](contract.md) first. The contract is frozen: tok
 
 1. Scaffold the projects by minute 4.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet new console -n WordFrequency -o labs/05-build-analyzer/work/WordFrequency
    dotnet new xunit -n WordFrequency.Tests -o labs/05-build-analyzer/work/WordFrequency.Tests
@@ -36,7 +36,7 @@ Lab 0 passed. Read [contract.md](contract.md) first. The contract is frozen: tok
 
 5. Run the tests even if they are red.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet test labs/05-build-analyzer/work/WordFrequency.Tests
    ```
@@ -45,7 +45,7 @@ Lab 0 passed. Read [contract.md](contract.md) first. The contract is frozen: tok
 
 7. Run the shared sample by minute 25.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet run --project labs/05-build-analyzer/work/WordFrequency -- samples/sample.txt --top 5
    ```
@@ -65,7 +65,7 @@ Lab 0 passed. Read [contract.md](contract.md) first. The contract is frozen: tok
 
 1. Exact top 5 output:
 
-```bash
+```text
 # Working directory: repository root
 dotnet run --project labs/05-build-analyzer/work/WordFrequency -- samples/sample.txt --top 5
 ```
@@ -80,7 +80,7 @@ practice: 3
 
 2. Default top 10 output:
 
-```bash
+```text
 # Working directory: repository root
 dotnet run --project labs/05-build-analyzer/work/WordFrequency -- samples/sample.txt
 ```
@@ -100,21 +100,20 @@ the: 2
 
 3. Tests are green:
 
-```bash
+```text
 # Working directory: repository root
 dotnet test labs/05-build-analyzer/work/WordFrequency.Tests
 ```
 
 4. Exit codes match the contract:
 
-```bash
+Run each case and compare the visible result with the contract: missing files should report a clear error and exit with code `1`; invalid arguments should exit with code `2`; `--help` should print usage and exit successfully.
+
+```text
 # Working directory: repository root
 dotnet run --project labs/05-build-analyzer/work/WordFrequency -- no-such-file.txt
-echo $?
 dotnet run --project labs/05-build-analyzer/work/WordFrequency -- samples/sample.txt --top zero
-echo $?
 dotnet run --project labs/05-build-analyzer/work/WordFrequency -- --help
-echo $?
 ```
 
 ## If you get stuck
@@ -134,7 +133,7 @@ By 13–14 minutes tests should execute, passing or failing. If they do not, sen
 | 14 min | Nothing runs | Send prompt card 5. |
 | 20 min | Still stuck | Read the working starter in `labs/06-refactor-review/starter/` to understand the shape, then adapt your work. |
 
-```bash
+```text
 # Working directory: repository root
 git status
 git restore <path-you-did-not-intend-to-change>

@@ -21,7 +21,7 @@ Install the pre-arrival tools in [docs/setup.md](../../docs/setup.md): VS Code, 
 
 1. Clone the repository and open it.
 
-   ```bash
+   ```text
    # Working directory: wherever you keep code
    git clone https://github.com/evanseric21/github_copilot_hands_on_workshop.git
    cd github_copilot_hands_on_workshop
@@ -30,21 +30,21 @@ Install the pre-arrival tools in [docs/setup.md](../../docs/setup.md): VS Code, 
 
 2. Confirm the SDK.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet --version
    ```
 
 3. Warm the build before the session.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet build GitHubCopilotWorkshop.sln
    ```
 
 4. Run the preflight app.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet run --project labs/00-preflight/starter/Preflight
    ```
@@ -57,7 +57,7 @@ Install the pre-arrival tools in [docs/setup.md](../../docs/setup.md): VS Code, 
 
 5. Run the preflight test.
 
-   ```bash
+   ```text
    # Working directory: repository root
    dotnet test labs/00-preflight/starter/Preflight.Tests/Preflight.Tests.csproj
    ```
@@ -81,7 +81,7 @@ Install the pre-arrival tools in [docs/setup.md](../../docs/setup.md): VS Code, 
 
 ## Verify
 
-```bash
+```text
 # Working directory: repository root
 dotnet run --project labs/00-preflight/starter/Preflight
 dotnet test labs/00-preflight/starter/Preflight.Tests/Preflight.Tests.csproj
@@ -115,7 +115,7 @@ This lab needs read-only network access for clone and restore only. No push or p
 
 Run the whole suite:
 
-```bash
+```text
 # Working directory: repository root
 dotnet test GitHubCopilotWorkshop.sln
 ```

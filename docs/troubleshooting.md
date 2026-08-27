@@ -20,7 +20,7 @@ Symptoms: `dotnet` is not recognized, or the version is not .NET 10.
 
 ## Restore or test fails
 
-```bash
+```text
 # Working directory: repository root
 dotnet restore GitHubCopilotWorkshop.sln
 dotnet test GitHubCopilotWorkshop.sln
@@ -70,7 +70,7 @@ Use the current VS Code UI if labels have moved. Official GitHub docs currently 
 
 Use the workshop rules: ASCII letter/digit tokens, invariant lowercase, no stop words, count descending, then ordinal tie-break.
 
-```bash
+```text
 # Working directory: repository root
 dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt --top 5
 ```

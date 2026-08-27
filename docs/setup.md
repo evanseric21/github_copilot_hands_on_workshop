@@ -18,7 +18,7 @@ Install these before the workshop. Lab 0 is the authoritative in-session preflig
 
 ## Verify locally
 
-```bash
+```text
 # Working directory: anywhere
 git --version
 dotnet --version
@@ -27,14 +27,14 @@ code --version
 
 `dotnet --version` must report a 10.x SDK. If multiple SDKs are installed, this can help:
 
-```bash
+```text
 # Working directory: anywhere
 dotnet --list-sdks
 ```
 
 ## Clone and open
 
-```bash
+```text
 # Working directory: wherever you keep code
 git clone https://github.com/evanseric21/github_copilot_hands_on_workshop.git
 cd github_copilot_hands_on_workshop
@@ -43,7 +43,7 @@ code .
 
 If you already cloned the repo, update it before class.
 
-```bash
+```text
 # Working directory: repository root
 git pull
 ```
@@ -57,7 +57,7 @@ git pull
 
 ## Warm restore and tests
 
-```bash
+```text
 # Working directory: repository root
 dotnet test labs/00-preflight/starter/Preflight.Tests/Preflight.Tests.csproj
 dotnet test GitHubCopilotWorkshop.sln
