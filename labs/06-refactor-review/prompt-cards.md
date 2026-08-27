@@ -7,7 +7,7 @@ Working directory = repository root. Seven cards: prompts 1–2 are the refactor
 ## Prompt 1 — strengthen the characterization net (send at ~minute 3)
 
 ```text
-Add xUnit tests to lab-refactor/WordFrequencyRefactor.Tests that lock in argument-handling
+Add xUnit tests to labs/06-refactor-review/starter/WordFrequencyRefactor.Tests that lock in argument-handling
 behaviour that nothing currently covers, so I can refactor CommandLineApp safely:
 
 1. Running with no arguments at all writes a message to the error writer and returns exit code 2.
@@ -20,7 +20,7 @@ Use the existing test style: CommandLineApp.Run with StringWriter for output and
 Do not change any production code. These tests must pass against the current implementation -
 if one fails, tell me what the current behaviour actually is instead of "fixing" the code.
 
-Then run: dotnet test lab-refactor/WordFrequencyRefactor.Tests
+Then run: dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
 ```
 
 > The default `--top` value is already locked by the existing `Run_PrintsDefaultTopTenWords` test,
@@ -32,8 +32,8 @@ Then run: dotnet test lab-refactor/WordFrequencyRefactor.Tests
 ## Prompt 2 — refactor, one move at a time (send at ~minute 6)
 
 ```text
-Refactor lab-refactor/WordFrequencyRefactor. Behaviour must not change - the tests in
-lab-refactor/WordFrequencyRefactor.Tests define the contract and must stay untouched and green.
+Refactor labs/06-refactor-review/starter/WordFrequencyRefactor. Behaviour must not change - the tests in
+labs/06-refactor-review/starter/WordFrequencyRefactor.Tests define the contract and must stay untouched and green.
 
 Do these one at a time, showing me the diff and pausing after each:
 1. Extract argument parsing out of CommandLineApp.Run into its own well-named unit.
@@ -44,7 +44,7 @@ Do these one at a time, showing me the diff and pausing after each:
 
 Rules: do not change any public signature, do not change output text or exit codes,
 do not edit or delete any test. After each step, run:
-dotnet test lab-refactor/WordFrequencyRefactor.Tests
+dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
 ```
 
 If agent mode charges ahead, rein it in:
@@ -64,7 +64,7 @@ in one sentence, and a concrete suggested change.
 
 Do not rewrite the code. List findings only, most severe first.
 
-<paste the output of: git diff lab-refactor>
+<paste the output of: git diff labs/06-refactor-review/starter>
 ```
 
 ---
@@ -72,8 +72,8 @@ Do not rewrite the code. List findings only, most severe first.
 ## Prompt 4 — when the review comes back empty or vague
 
 ```text
-Review lab-refactor/WordFrequencyRefactor/CommandLineApp.cs and
-lab-refactor/WordFrequencyRefactor/WordFrequencyAnalyzer.cs.
+Review labs/06-refactor-review/starter/WordFrequencyRefactor/CommandLineApp.cs and
+labs/06-refactor-review/starter/WordFrequencyRefactor/WordFrequencyAnalyzer.cs.
 
 Give me exactly the top 3 concerns you would raise in a pull request, ranked by severity,
 each with a one-line justification and a concrete suggested change. Be specific about
@@ -91,7 +91,7 @@ I am accepting this review finding:
 
 Apply the smallest change that resolves it. Do not touch anything else, do not change any
 public signature, output text or exit code, and do not edit any test.
-Then run: dotnet test lab-refactor/WordFrequencyRefactor.Tests
+Then run: dotnet test labs/06-refactor-review/starter/WordFrequencyRefactor.Tests
 ```
 
 ---
@@ -122,7 +122,7 @@ A "yes" is a legitimate dismissal, and prompt 6's answer is the rationale you wr
 Run the same diff through two different lenses and compare.
 
 ```text
-Review my uncommitted changes in lab-refactor with a single focus: correctness and edge cases.
+Review my uncommitted changes in labs/06-refactor-review/starter with a single focus: correctness and edge cases.
 Ignore style entirely.
 ```
 

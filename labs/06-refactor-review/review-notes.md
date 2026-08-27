@@ -16,7 +16,7 @@ Nobody grades this. Keep it local if you like — nothing here has to be committ
 ## Baseline (fill in before refactoring)
 
 - Tests passing **before** any change: `_____ / 8` (expected: 8 of 8)
-- Output of `dotnet run --project lab-refactor/WordFrequencyRefactor -- samples/sample.txt`
+- Output of `dotnet run --project labs/06-refactor-review/starter/WordFrequencyRefactor -- samples/sample.txt`
   printed 10 lines (the default `--top`): ☐ yes ☐ no
 - Output of the same command with `--top 5` matched the pinned five lines: ☐ yes ☐ no
 
@@ -26,7 +26,7 @@ If either line above is not clean, fix it before you refactor. You cannot preser
 
 ## Finding 1
 
-- **Where:** `lab-refactor/WordFrequencyRefactor/______.cs`, around line ___
+- **Where:** `labs/06-refactor-review/starter/WordFrequencyRefactor/______.cs`, around line ___
 - **Severity as reported:** high / medium / low
 - **What the reviewer said** (one sentence):
 - **Verdict:** ☐ Addressed ☐ Dismissed
@@ -35,7 +35,7 @@ If either line above is not clean, fix it before you refactor. You cannot preser
 
 ## Finding 2
 
-- **Where:** `lab-refactor/WordFrequencyRefactor/______.cs`, around line ___
+- **Where:** `labs/06-refactor-review/starter/WordFrequencyRefactor/______.cs`, around line ___
 - **Severity as reported:** high / medium / low
 - **What the reviewer said** (one sentence):
 - **Verdict:** ☐ Addressed ☐ Dismissed

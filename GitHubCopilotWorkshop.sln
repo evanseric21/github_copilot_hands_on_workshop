@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "starter", "starter", "{FEA2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScopedInstructionsDemo", "labs\02-scoped-csharp-instructions\starter\ScopedInstructionsDemo\ScopedInstructionsDemo.csproj", "{A6A8B81A-5B20-4D0D-9737-D83DEADB6383}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lab-refactor", "lab-refactor", "{368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-refactor-review", "06-refactor-review", "{368CCB80-2D43-F6E1-0C88-0BC3284ABAAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyRefactor", "labs\06-refactor-review\starter\WordFrequencyRefactor\WordFrequencyRefactor.csproj", "{FBBBF6BA-57AD-48DA-9315-6250ACDE331E}"
 EndProject

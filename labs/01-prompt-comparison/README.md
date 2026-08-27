@@ -1,122 +1,162 @@
 # Lab 1 — Prompt comparison
-
-⬅️ [Lab 0 — Preflight](../00-preflight/README.md)
+> Lab 1 of 7 · [⬅️ Previous](../00-preflight/README.md) · [🏠 Workshop home](../../README.md)
 
 | | |
-|---|---|
+| --- | --- |
 | **Timebox** | 10 minutes |
-| **Copilot surface** | Copilot Chat — **Ask** mode (inline chat also fine) |
-| **Working directory** | Repository root — `github_copilot_hands_on_workshop`. No files need to be open. |
-| **Starting point** | [`prompts/weak-prompts.md`](prompts/weak-prompts.md) — three deliberately bad prompts |
+| **Copilot surface** | Copilot Chat — Ask mode |
+| **Working directory** | Repository root — only `comparison-worksheet.md` is edited |
+| **Starting point** | The weak and strong prompts below |
 | **Track** | Core → Beginner fallback → Stretch |
 
 ## Goal
 
-Run the **same request twice** — once vague, once specific — and see the difference with your own eyes.
-By the end you should be able to say *why* the second one worked, not just that it did.
+Run the same request twice — once vague, once specific — and see the difference. Practice **Goal + Context + Constraints + Example when it helps**.
 
-The recipe you are practising is the one from the deck:
+## Before you start
 
-> **Goal + Context + Constraints + (Example when it helps)**
-
-Everything you write here is reusable: the "after" prompts in this lab are the seeds of the prompts you will use in Lab 5.
-
-## Prerequisites
-
-- Lab 0 passed (Copilot Chat answers you).
-- Nothing to build, nothing to install. **You do not write any code in this lab.**
-
-## Definition of done
-
-- [ ] You ran all three **weak** prompts and skimmed the results.
-- [ ] You rewrote all three with goal + context + constraints, and ran them.
-- [ ] You can point at one concrete difference per pair — not "it's better", but *what* is better.
-- [ ] You have one before/after pair you would be happy to read aloud.
-
----
+Lab 0 passed and Copilot Chat answers you. You do not write code in this lab; you compare prompt quality and record one before/after observation in [comparison-worksheet.md](comparison-worksheet.md).
 
 ## Steps
 
-1. **Open Copilot Chat in Ask mode.** Start a *new* chat. Agent mode is not needed here and will slow you down.
-2. **Open** [`prompts/weak-prompts.md`](prompts/weak-prompts.md) and read the three weak prompts. Keep it open — you will copy from it.
-3. **Run weak prompt #1** (`make a function`) exactly as written. Do not add context. Skim the answer and note what Copilot had to guess: language? framework? signature? edge cases?
-4. **Rewrite it.** Add a goal, the context Copilot was guessing at, and hard constraints. If you stall, take the ready-made rewrite from [`prompts/prompt-cards.md`](prompts/prompt-cards.md) — using the card is a legitimate way to finish this lab.
-5. **Run your rewrite in a new chat.** A new chat matters: otherwise Copilot reuses the first answer as context and you cannot tell what your prompt actually earned.
-6. **Repeat steps 3–5** for weak prompt #2 (`fix this`) and #3 (`write tests`).
-7. **Pick your best pair** and write one sentence in [`comparison-worksheet.md`](comparison-worksheet.md): *the improved prompt produced X, which the weak one did not.*
+1. Open Copilot Chat in Ask mode and start a new chat.
 
-## Copy/paste prompts
+2. Run weak prompt 1 exactly as written.
 
-The full set lives in [`prompts/prompt-cards.md`](prompts/prompt-cards.md). Here is pair #1 so you can start in ten seconds.
+   Expect something generic and unpredictable here — the weak prompt forces Copilot to guess, and that's exactly the point. You'll fix it with a stronger prompt next.
 
-**Weak:**
+   ```text
+   make a function
+   ```
 
-```text
-make a function
-```
+3. Run strong prompt 1 in a new chat.
 
-**Strong:**
+   ```text
+   Act as a senior C# developer working in .NET 10.
 
-```text
-Act as a senior C# developer working in .NET 10.
+   Goal: write one pure static method that returns the most frequent words in a block of text.
 
-Goal: write one pure static method that returns the most frequent words in a block of text.
+   Signature: public static IReadOnlyList<WordCount> TopWords(string text, int top)
+   where WordCount is: public sealed record WordCount(string Word, int Count);
 
-Signature: public static IReadOnlyList<WordCount> TopWords(string text, int top)
-where WordCount is: public sealed record WordCount(string Word, int Count);
+   Constraints:
+   - A token is a match of the regex [A-Za-z0-9]+. Everything else separates words.
+   - Lowercase every token with ToLowerInvariant(). Do not remove stop words.
+   - Order by count descending, then by word ascending using StringComparer.Ordinal.
+   - Return an empty list when top <= 0.
+   - No file I/O, no Console calls, no Main method. Pure function only.
 
-Constraints:
-- A token is a match of the regex [A-Za-z0-9]+. Everything else separates words.
-- Lowercase every token with ToLowerInvariant(). Do not remove stop words.
-- Order by count descending, then by word ascending using StringComparer.Ordinal.
-- Return an empty list when top <= 0.
-- No file I/O, no Console calls, no Main method. Pure function only.
+   Return the method and the record, nothing else.
+   ```
 
-Return the method and the record, nothing else.
-```
+4. Paste this snippet into Copilot Chat, then run weak prompt 2.
 
-## Midpoint checkpoint (at 5 minutes)
+   ```csharp
+   public static int CountWords(string text)
+   {
+       var parts = text.Split(' ');
+       return parts.Length;
+   }
+   ```
 
-You should have **finished pair #1 and be running pair #2**.
+   ```text
+   fix this
+   ```
 
-If you are still on pair #1, stop composing and use the prompt cards for #2 and #3 — the point of the lab is to *see* the contrast, not to author it from scratch.
+5. Run strong prompt 2 in a new chat.
+
+   ```text
+   This C# method is supposed to count how many words are in a string, but it is wrong.
+
+   Current behavior: "Hello,  world" returns 3 because it splits on a single space and
+   counts the empty string, and "word." is treated as a different word from "word".
+
+   Expected behavior: count the number of tokens matching the regex [A-Za-z0-9]+,
+   so "Hello,  world" returns 2.
+
+   Constraints:
+   - Keep the method name and the public static signature.
+   - Do not add a Main method or Console output.
+   - Explain the root cause in one sentence before you show the fixed code.
+   ```
+
+6. Run weak prompt 3 in a new chat.
+
+   ```text
+   write tests
+   ```
+
+7. Run strong prompt 3 in a new chat.
+
+   ```text
+   Write xUnit tests in C# for this method:
+
+       public static IReadOnlyList<WordCount> TopWords(string text, int top)
+
+   Behavior under test:
+   - Tokens are matches of [A-Za-z0-9]+; everything else separates words.
+   - Tokens are lowercased with ToLowerInvariant, so "The" and "the" combine.
+   - Results are ordered by count descending, then by word ascending with StringComparer.Ordinal.
+   - top <= 0 returns an empty list.
+
+   Cover these cases:
+   1. case-insensitive combining
+   2. punctuation stripped ("word." counts as "word")
+   3. digits are valid words ("42" is a token)
+   4. an alphabetical tie broken by StringComparer.Ordinal
+   5. top larger than the number of distinct words
+   6. empty input
+
+   Use [Theory] with InlineData where it removes duplication, and name tests
+   Method_Scenario_Expected. Do not write the implementation.
+   ```
+
+8. Write one sentence in [comparison-worksheet.md](comparison-worksheet.md): the improved prompt produced X, which the weak one did not.
+
+## Done when
+
+- [ ] You ran all three weak prompts and skimmed the results.
+- [ ] You ran all three improved prompts in fresh chats.
+- [ ] You can point at one concrete difference per pair.
+- [ ] You wrote one before/after observation in `comparison-worksheet.md`.
 
 ## Verify
 
-You are done when, for each pair, you can fill in this sentence with something specific:
+For each pair, fill in this sentence with specifics:
 
-> "The weak prompt made Copilot guess **\_\_\_\_**; my improved prompt removed that guess by stating **\_\_\_\_**."
+```text
+The weak prompt made Copilot guess ______; my improved prompt removed that guess by stating ______.
+```
 
-Good specifics: *"guessed the test framework — I named xUnit"*, *"guessed the tie-break — I specified `StringComparer.Ordinal`"*, *"invented a `Main` — I said pure function, no I/O"*.
+## If you get stuck
 
-Vague answers ("it was longer", "it was nicer") mean the rewrite was not actually more constrained. Add one more constraint and run it again.
+<details>
+<summary>Fallback path</summary>
 
-## No-push / no-PR fallback
-
-Nothing in this lab touches git. You will not commit, push, or open a pull request.
-[`comparison-worksheet.md`](comparison-worksheet.md) is yours to scribble in locally — leave it uncommitted if you prefer.
-
-## Beginner recovery path
+At 5 minutes you should have finished pair 1 and be running pair 2. If not, stop composing from scratch and use the strong prompts above.
 
 | Symptom | Fix |
-|---|---|
-| Blank page — you cannot think of constraints | Use [`prompts/prompt-cards.md`](prompts/prompt-cards.md) verbatim. Run the card, then change **one word** and run it again. Editing beats authoring. |
-| Both answers look basically the same | You are probably in the same chat thread. Start a new chat for every prompt. |
-| Copilot writes a whole console app when you asked for a method | Add the constraint `No Main method, no Console calls, no file I/O.` That one line is the fix. |
-| The C# it produced uses something you do not recognise | Fine — you are grading the *prompt*, not the code. Nothing here has to compile. |
-| You ran out of time on pair #3 | Skip it. Two solid pairs beats three rushed ones, and the timer wins. |
+| --- | --- |
+| Both answers look the same | Start a new chat for every prompt. |
+| Copilot writes a console app | Add: `No Main method, no Console calls, no file I/O.` |
+| The C# uses unfamiliar APIs | Fine; you are grading the prompt, not compiling code. |
+| Out of time on pair 3 | Two solid pairs beat three rushed ones. |
 
-## Stretch (optional, intermediate)
+Nothing in this lab touches git. For more help, see [docs/troubleshooting.md](../../docs/troubleshooting.md).
 
-- **Pattern-stacking:** take your strongest prompt and add a *role* ("act as a C# reviewer"), then a *few-shot example* (one input line and its expected output). Which addition changed the answer more?
-- **Explain-then-do:** prefix a prompt with `First explain your approach in 3 bullets, then write the code.` Catching a wrong assumption in bullets is far cheaper than catching it in a diff.
-- **Refine-in-place:** instead of restarting, reply `Keep everything, but change only the tie-break to StringComparer.Ordinal.` Notice how much less you had to type.
-- **Save the winner** into [`comparison-worksheet.md`](comparison-worksheet.md). You will paste it straight into Lab 5.
+</details>
 
-## Reflect (30 seconds)
+## Stretch
 
-Which single constraint bought the biggest improvement — naming the signature, naming the framework, or forbidding things ("no `Main`, no I/O")?
-That is the constraint you are probably leaving out of your prompts at work.
+<details>
+<summary>Optional prompt experiments</summary>
+
+- Add a role, then add a few-shot example. Which changed the answer more?
+- Prefix a prompt with `First explain your approach in 3 bullets, then write the code.`
+- Refine in place with `Keep everything, but change only the tie-break to StringComparer.Ordinal.`
+- Save your best prompt in [comparison-worksheet.md](comparison-worksheet.md) for Lab 5.
+
+</details>
 
 ## Next
 
